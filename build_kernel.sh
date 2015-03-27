@@ -1,7 +1,7 @@
 #!/bin/sh
 export KERNELDIR=`readlink -f .`
-. ~/AGNi_stamp_STOCK.sh
-. ~/gcc_4.9.3_linaro_cortex-a9.sh
+#. ~/AGNi_stamp_STOCK.sh
+#. ~/gcc_4.9.3_linaro_cortex-a9.sh
 
 export ARCH=arm
 
@@ -15,7 +15,8 @@ fi
 mv .git .git-halt
 
 cd $KERNELDIR/
-make -j2 || exit 1
+make clean
+make -j4 || exit 1
 
 mkdir -p $KERNELDIR/BUILT_I9305/lib/modules
 
