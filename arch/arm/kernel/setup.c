@@ -698,15 +698,15 @@ static int __init parse_tag_cmdline(const struct tag *tag)
 			COMMAND_LINE_SIZE);
 	}
 
-	/* increase vmalloc space from 144m or 176m to 384m */
+	/* increase vmalloc space from 144m or 176m to 224m */
 	char *vma_param = strstr(default_command_line + cmdline_len, "vmalloc=144m");
 	if (!vma_param) {
 		vma_param = strstr(default_command_line + cmdline_len, "vmalloc=176m");
 	}
 	
 	if (vma_param) {
-		vma_param[8] = '3';
-		vma_param[9] = '8';
+		vma_param[8] = '2';
+		vma_param[9] = '2';
 		vma_param[10] = '4';
 	}
 #endif
